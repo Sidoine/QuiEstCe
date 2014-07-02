@@ -30,8 +30,6 @@ namespace WebApplication2
 
             app.UseSignalR("/signalr", new HubConfiguration());
 
-         //   app.RunSignalR();
-
             app.UseStaticFiles();
 
             app.Run(async context =>

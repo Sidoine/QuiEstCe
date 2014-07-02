@@ -3,7 +3,7 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-	<TypeScriptModuleKind>amd</TypeScriptModuleKind>
+    <TypeScriptModuleKind>amd</TypeScriptModuleKind>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -26,7 +26,7 @@
     <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DevelopmentServerPort>51045</DevelopmentServerPort>
+    <DevelopmentServerPort>51046</DevelopmentServerPort>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameHub.cs" />
@@ -39,9 +39,11 @@
     <Content Include="Scripts\app\main.ts" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.signalR.js" />
+    <Content Include="Scripts\knockout.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\typings\jquery\jquery.d.ts" />
+    <Content Include="Scripts\typings\knockout\knockout.d.ts" />
     <Content Include="Scripts\typings\signalr\signalr.d.ts" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>

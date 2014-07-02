@@ -1,0 +1,26 @@
+﻿<html>
+<head>
+    <title>Qui est-ce ?</title>
+</head>
+<body>
+    <div>
+        <input type="text" data-bind="value: name"/>
+    </div>
+    Salut <span data-bind="text: name"></span>
+    <ul data-bind="foreach: players">
+        <li data-bind="text: name"></li>
+    </ul>
+
+    <ul data-bind="foreach: messages">
+        <li><strong data-bind="text: player.name"></strong> <span data-bind="text: text"></span></li>
+    </ul>
+
+    <input type="text" data-bind="value: message" />
+    <button data-bind="click: send">Envoyer</button>
+
+    <script src="~/Scripts/require.js" data-main="Scripts/main"></script>
+
+
+
+</body>
+</html>

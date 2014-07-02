@@ -4,8 +4,8 @@
     },
     shim: {
         'jquery.signalR': ['jquery'],
-        'app/main': ['jquery.signalR', 'signalr-hub'],
-        'signalr-hub': ['jquery']
+        'app/main': [, 'signalr-hub', 'knockout', 'jquery'],
+        'signalr-hub': ['jquery.signalR', 'jquery']
     }
 });
 

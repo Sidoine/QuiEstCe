@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.21730.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApplication2", "WebApplication2\WebApplication2.kproj", "{C48CA460-B566-4328-BC86-C55CA5A6647A}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "QuiEstCe", "QuiEstCe\QuiEstCe.kproj", "{C48CA460-B566-4328-BC86-C55CA5A6647A}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Classlibrary1", "Classlibrary1\Classlibrary1.kproj", "{230AB7DB-489C-4B09-8074-1915BBE17F36}"
 EndProject
