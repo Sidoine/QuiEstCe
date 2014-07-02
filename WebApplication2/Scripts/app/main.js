@@ -1,4 +1,5 @@
-﻿define(["require", "exports", 'jquery'], function(require, exports, $) {
+﻿//import $ = require('jquery');
+define(["require", "exports"], function(require, exports) {
     var Main = (function () {
         function Main() {
             var _this = this;
@@ -8,7 +9,7 @@
             };
         }
         Main.prototype.run = function () {
-            this.proxy = $.connection.gameHub;
+            this.proxy = $.connection['gameHub'];
             this.proxy.client.addMessage = function (message) {
                 return console.log(message);
             };
