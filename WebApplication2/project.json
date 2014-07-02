@@ -1,0 +1,19 @@
+﻿{
+    "dependencies": {
+        "Helios" : "0.1-alpha-build-0585",
+        "Microsoft.AspNet.Mvc": "0.1-*",
+        "Microsoft.AspNet.Server.WebListener": "0.1-*",
+        "Microsoft.AspNet.Hosting": "0.1-*",
+        "Classlibrary1": "",
+        "Microsoft.AspNet.SignalR.Server":  "0.1-*",
+        "Microsoft.AspNet.StaticFiles": ""
+    },
+    "configurations" : {
+        "net45" : { },
+        "k10" : { }
+    },
+    "commands": {
+        "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001"
+    }
+
+}
