@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNet.SignalR;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace WebApplication2
 {
@@ -28,6 +29,13 @@ namespace WebApplication2
             {
                 Clients.All.setName(name.Key, name.Value);
             }
+        }
+
+        public override Task OnDisconnected()
+        {
+            names.Remove(Context.ConnectionId);
+            Clients.All.logout(Context.ConnectionId);
+            return base.OnDisconnected();
         }
     }
 }

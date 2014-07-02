@@ -36,6 +36,11 @@ export class Main {
             }
             console.log(id + " a le nom " + name);
         }
+
+        this.proxy.client.logout = (id: string) => {
+            this.players.remove(this.idToPlayer[id]);
+            delete this.idToPlayer[id];
+        }
         
         $.connection.hub.start().done(this.init).fail((message:string) => console.log('connection failed ' + message));
 

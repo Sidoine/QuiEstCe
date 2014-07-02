@@ -51,6 +51,11 @@
                 console.log(id + " a le nom " + name);
             };
 
+            this.proxy.client.logout = function (id) {
+                _this.players.remove(_this.idToPlayer[id]);
+                delete _this.idToPlayer[id];
+            };
+
             $.connection.hub.start().done(this.init).fail(function (message) {
                 return console.log('connection failed ' + message);
             });
