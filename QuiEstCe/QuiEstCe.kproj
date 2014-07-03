@@ -29,8 +29,11 @@
     <DevelopmentServerPort>51046</DevelopmentServerPort>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="GameHub.cs" />
-    <Compile Include="HomeController.cs" />
+    <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\Player.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

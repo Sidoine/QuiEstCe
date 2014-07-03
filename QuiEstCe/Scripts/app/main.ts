@@ -4,6 +4,13 @@ import ko = require('knockout');
 export class Player {
     public name = ko.observable<string>();
     public id: string;
+    public points = ko.observable<number>();
+
+    constructor(data) {
+        this.id = data['Id'];
+        this.name(data['Name']);
+        this.points(data['Points']);
+    }
 }
 
 export class Message {
@@ -56,11 +63,17 @@ export class Main {
         console.log('connection ' + $.connection.hub.id);
         this.logged(true);
         this.proxy.server.setName(this.name());
-        this.proxy.server.getPlayerList();
+        $.getJSON('/player').done((data: any[]) => {
+            this.players(data.map(value => {
+                var player = new Player(value);
+                this.idToPlayer[player.id] = player;
+                return player;
+            }));
+        });
     }
 
     public send = () => {
-        this.proxy.server.echo(this.message());
+        this.proxy.server.addMessage(this.message());
         this.message('');
     }
 }

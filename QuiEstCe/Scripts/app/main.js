@@ -1,7 +1,11 @@
 ﻿define(["require", "exports", 'jquery', 'knockout'], function(require, exports, $, ko) {
     var Player = (function () {
-        function Player() {
+        function Player(data) {
             this.name = ko.observable();
+            this.points = ko.observable();
+            this.id = data['Id'];
+            this.name(data['Name']);
+            this.points(data['Points']);
         }
         return Player;
     })();
@@ -27,10 +31,16 @@
                 console.log('connection ' + $.connection.hub.id);
                 _this.logged(true);
                 _this.proxy.server.setName(_this.name());
-                _this.proxy.server.getPlayerList();
+                $.getJSON('/player').done(function (data) {
+                    _this.players(data.map(function (value) {
+                        var player = new Player(value);
+                        _this.idToPlayer[player.id] = player;
+                        return player;
+                    }));
+                });
             };
             this.send = function () {
-                _this.proxy.server.echo(_this.message());
+                _this.proxy.server.addMessage(_this.message());
                 _this.message('');
             };
         }
