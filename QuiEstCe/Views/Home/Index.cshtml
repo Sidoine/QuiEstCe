@@ -4,8 +4,9 @@
 </head>
 <body>
     <div>
-        <input type="text" data-bind="value: name"/>
+        Votre pseudo: <input type="text" data-bind="value: name" />
     </div>
+    <br />
     Salut <span data-bind="text: name"></span>
     <ul data-bind="foreach: players">
         <li><span data-bind="text: name"></span> : <span data-bind="text: points"></span></li>
@@ -16,7 +17,7 @@
     </ul>
 
     <div data-bind="with: question">
-        <img data-bind="attr: {src: image}"/>
+        <img data-bind="attr: {src: image}" />
     </div>
 
     <input type="text" data-bind="value: message" />

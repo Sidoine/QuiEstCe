@@ -11,7 +11,7 @@ namespace WebApplication2
     /// </summary>
     public class GameHub : Hub
     {
-        public void AddMessage(string gameId, string message)
+        public void AddMessage(string message)
         {
             Clients.All.addMessage(Context.ConnectionId, message);
             if (Game.Instance.CurrentQuestion.Name.ToLower().IndexOf(message.Trim().ToLower() + " ") == 0)
