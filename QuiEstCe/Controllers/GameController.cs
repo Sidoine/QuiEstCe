@@ -10,13 +10,12 @@ namespace QuiEstCe.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return Json(Game.GetGames());
+            return null;
         }
 
         public IActionResult Post(string name)
         {
-            Game.AddGame(name);
-            return Json(Game.GetGame(name));
+            return null;
         }
     }
 }

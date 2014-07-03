@@ -28,7 +28,7 @@ namespace WebApplication2
                     template: "{controller}/{id?}");
             });
 
-            app.UseSignalR("/signalr", new HubConfiguration());
+            app.UseSignalR();
 
             app.UseStaticFiles();
 
