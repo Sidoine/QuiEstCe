@@ -8,12 +8,16 @@
     </div>
     Salut <span data-bind="text: name"></span>
     <ul data-bind="foreach: players">
-        <li data-bind="text: name"></li>
+        <li><span data-bind="text: name"></span> : <span data-bind="text: points"></span></li>
     </ul>
 
     <ul data-bind="foreach: messages">
-        <li><strong data-bind="text: player.name"></strong> <span data-bind="text: text"></span></li>
+        <li><strong data-bind="text: player.name"></strong> <span data-bind="text: text"></span> </li>
     </ul>
+
+    <div data-bind="with: question">
+        <img data-bind="attr: {src: image}"/>
+    </div>
 
     <input type="text" data-bind="value: message" />
     <button data-bind="click: send">Envoyer</button>

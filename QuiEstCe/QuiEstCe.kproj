@@ -31,9 +31,11 @@
   <ItemGroup>
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="GameHub.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Question.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

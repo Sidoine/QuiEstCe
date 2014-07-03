@@ -18,6 +18,10 @@ export class Message {
     public text: string;
 }
 
+export class Question {
+    public image = ko.observable<string>();
+}
+
 export class Main {
     private proxy;
     public name = ko.observable<string>('Anonyme');
@@ -26,6 +30,7 @@ export class Main {
     public logged = ko.observable(false);
     public messages = ko.observableArray<Message>();
     public message = ko.observable('');
+    public question = new Question();
 
     public run() {
         this.proxy = $.connection['gameHub'];
@@ -44,6 +49,11 @@ export class Main {
             console.log(id + " a le nom " + name);
         }
 
+        this.proxy.client.win = (id: string, points: number) => {
+            this.idToPlayer[id].points(points);
+            this.updateQuestion();
+        };
+
         this.proxy.client.logout = (id: string) => {
             this.players.remove(this.idToPlayer[id]);
             delete this.idToPlayer[id];
@@ -56,9 +66,14 @@ export class Main {
                 this.proxy.server.setName(newValue);
         });
 
+        this.updateQuestion();
         ko.applyBindings(this);
     }
-    
+
+    private updateQuestion() {
+        $.getJSON('/question').done(data => this.question.image(data['Image']));
+    }
+
     private init = () => {
         console.log('connection ' + $.connection.hub.id);
         this.logged(true);

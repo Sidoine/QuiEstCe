@@ -14,6 +14,11 @@ namespace WebApplication2
         public void AddMessage(string message)
         {
             Clients.All.addMessage(Context.ConnectionId, message);
+            if (message.ToLower() == Game.Instance.CurrentQuestion.Name.ToLower())
+            {
+                Game.Instance.AnswerQuestion(Context.ConnectionId);
+                Clients.All.win(Context.ConnectionId, Game.Instance.Players[Context.ConnectionId].Points);
+            }
         }
 
         public void SetName(string name)

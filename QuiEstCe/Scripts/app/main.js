@@ -18,6 +18,14 @@
     })();
     exports.Message = Message;
 
+    var Question = (function () {
+        function Question() {
+            this.image = ko.observable();
+        }
+        return Question;
+    })();
+    exports.Question = Question;
+
     var Main = (function () {
         function Main() {
             var _this = this;
@@ -27,6 +35,7 @@
             this.logged = ko.observable(false);
             this.messages = ko.observableArray();
             this.message = ko.observable('');
+            this.question = new Question();
             this.init = function () {
                 console.log('connection ' + $.connection.hub.id);
                 _this.logged(true);
@@ -61,6 +70,11 @@
                 console.log(id + " a le nom " + name);
             };
 
+            this.proxy.client.win = function (id, points) {
+                _this.idToPlayer[id].points(points);
+                _this.updateQuestion();
+            };
+
             this.proxy.client.logout = function (id) {
                 _this.players.remove(_this.idToPlayer[id]);
                 delete _this.idToPlayer[id];
@@ -75,7 +89,15 @@
                     _this.proxy.server.setName(newValue);
             });
 
+            this.updateQuestion();
             ko.applyBindings(this);
+        };
+
+        Main.prototype.updateQuestion = function () {
+            var _this = this;
+            $.getJSON('/question').done(function (data) {
+                return _this.question.image(data['Image']);
+            });
         };
         return Main;
     })();
