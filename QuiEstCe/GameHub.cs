@@ -11,10 +11,10 @@ namespace WebApplication2
     /// </summary>
     public class GameHub : Hub
     {
-        public void AddMessage(string message)
+        public void AddMessage(string gameId, string message)
         {
             Clients.All.addMessage(Context.ConnectionId, message);
-            if (message.ToLower() == Game.Instance.CurrentQuestion.Name.ToLower())
+            if (Game.Instance.CurrentQuestion.Name.ToLower().IndexOf(message.Trim().ToLower() + " ") == 0)
             {
                 Game.Instance.AnswerQuestion(Context.ConnectionId);
                 Clients.All.win(Context.ConnectionId, Game.Instance.Players[Context.ConnectionId].Points);

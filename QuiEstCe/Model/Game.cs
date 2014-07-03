@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace QuiEstCe.Model
 {
@@ -18,9 +20,9 @@ namespace QuiEstCe.Model
 	    {
             Players = new Dictionary<string, Player>();
             Questions = new List<Question>();
-            Questions.Add(new Question { Image = "Images/arcis.jpg", Name = "Jean-Stéphane" });
-            Questions.Add(new Question { Image = "Images/bentolila.jpg", Name = "Joël" });
-            Questions.Add(new Question { Image = "Images/pachulski.jpg", Name = "Alexandre" });
+            var path = Directory.GetCurrentDirectory();
+            var json = File.ReadAllText(@"C:\Users\Sidoine\Documents\Visual Studio 14\Projects\QuiEstCe\QuiEstCe\database.json");
+            Questions = JsonConvert.DeserializeObject<List<Question>>(json);
             CurrentQuestion = Questions[random.Next(Questions.Count)];
         }
 

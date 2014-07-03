@@ -6,7 +6,8 @@
         "Microsoft.AspNet.Hosting": "0.1-*",
         "Classlibrary1": "",
         "Microsoft.AspNet.SignalR.Server":  "0.1-*",
-        "Microsoft.AspNet.StaticFiles": ""
+        "Microsoft.AspNet.StaticFiles": "",
+        "Newtonsoft.Json": ""
     },
     "configurations" : {
         "net45" : { },
