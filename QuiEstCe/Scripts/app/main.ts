@@ -37,7 +37,7 @@ export class Main {
                 this.idToPlayer[id].name(name);
             }
             else {
-                var newPlayer = { id: id, name: ko.observable(name) };
+                var newPlayer = { id: id, name: ko.observable(name), points: ko.observable(0) };
                 this.players.push(newPlayer);
                 this.idToPlayer[id] = newPlayer;
             }

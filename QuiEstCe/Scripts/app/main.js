@@ -54,7 +54,7 @@
                 if (_this.idToPlayer[id]) {
                     _this.idToPlayer[id].name(name);
                 } else {
-                    var newPlayer = { id: id, name: ko.observable(name) };
+                    var newPlayer = { id: id, name: ko.observable(name), points: ko.observable(0) };
                     _this.players.push(newPlayer);
                     _this.idToPlayer[id] = newPlayer;
                 }
