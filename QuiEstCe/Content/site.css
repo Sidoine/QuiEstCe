@@ -1,0 +1,54 @@
+﻿body {
+    font-family: sans-serif;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.configuration {
+    background: #EEE;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.players {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #CCC;
+}
+
+.players td {
+    text-align: center;
+}
+
+.players thead tr {
+    background: #ddd;
+}
+
+.players tbody tr:nth-child(even) {
+    background: #ddd;
+}
+
+.messages {
+    position: relative;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.question {
+    text-align: center;
+    background-color: #EEE;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.question img {
+    margin: 10px;
+    border: 2px solid black;
+}
+
+.solution {
+    color: #ddd;
+}

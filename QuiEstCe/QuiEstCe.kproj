@@ -254,6 +254,7 @@
     <Content Include="cards\zinck.jpg" />
     <Content Include="cards\zoila.jpg" />
     <Content Include="cards\zossou.jpg" />
+    <Content Include="Content\site.css" />
     <Content Include="database.json" />
     <Content Include="project.json" />
     <Content Include="Scripts\app\main.js" />

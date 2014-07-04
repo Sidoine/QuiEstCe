@@ -20,6 +20,7 @@ export class Message {
 
 export class Question {
     public image = ko.observable<string>();
+    public name = ko.observable<string>();
 }
 
 export class Main {
@@ -35,7 +36,7 @@ export class Main {
     public run() {
         this.proxy = $.connection['gameHub'];
         this.proxy.client.addMessage = (author: string, message: string) => {
-            this.messages.push({ player: this.idToPlayer[author], text: message });
+            this.messages.unshift({ player: this.idToPlayer[author], text: message });
         }
         this.proxy.client.setName = (id: string, name:string) => {
             if (this.idToPlayer[id]) {
@@ -71,7 +72,10 @@ export class Main {
     }
 
     private updateQuestion() {
-        $.getJSON('/question').done(data => this.question.image(data['Image']));
+        $.getJSON('/question').done(data => {
+            this.question.image(data['Image']);
+            this.question.name(data['Name']);
+        });
     }
 
     private init = () => {

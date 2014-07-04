@@ -21,6 +21,7 @@
     var Question = (function () {
         function Question() {
             this.image = ko.observable();
+            this.name = ko.observable();
         }
         return Question;
     })();
@@ -57,7 +58,7 @@
             var _this = this;
             this.proxy = $.connection['gameHub'];
             this.proxy.client.addMessage = function (author, message) {
-                _this.messages.push({ player: _this.idToPlayer[author], text: message });
+                _this.messages.unshift({ player: _this.idToPlayer[author], text: message });
             };
             this.proxy.client.setName = function (id, name) {
                 if (_this.idToPlayer[id]) {
@@ -96,7 +97,8 @@
         Main.prototype.updateQuestion = function () {
             var _this = this;
             $.getJSON('/question').done(function (data) {
-                return _this.question.image(data['Image']);
+                _this.question.image(data['Image']);
+                _this.question.name(data['Name']);
             });
         };
         return Main;

@@ -1,32 +1,43 @@
 ﻿<html>
 <head>
     <title>Qui est-ce ?</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/site.css"/>
 </head>
 <body>
-    <div>
+    <div class="configuration">
         Votre pseudo: <input type="text" data-bind="value: name" />
     </div>
-    <br />
-    Salut <span data-bind="text: name"></span>
-    <ul data-bind="foreach: players">
-        <li><span data-bind="text: name"></span> : <span data-bind="text: points"></span></li>
-    </ul>
 
-    <ul data-bind="foreach: messages">
-        <li><strong data-bind="text: player.name"></strong> <span data-bind="text: text"></span> </li>
-    </ul>
+    <table class="players">
+        <thead>
+            <tr>
+                <th>Joueur</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: players">
+            <tr><td data-bind="text: name"></td><td data-bind="text: points"></td></tr>
+        </tbody>
+    </table>
 
-    <div data-bind="with: question">
-        <img data-bind="attr: {src: image}" />
+    <div class="question">
+        <div data-bind="with: question">
+            <img data-bind="attr: {src: image}" />
+        </div>
+        <form action="/" data-bind="submit: send" class="answer">
+            <input type="text" data-bind="value: message" />
+            <button type="submit">Envoyer</button>
+        </form>
     </div>
 
-    <form action="/" data-bind="submit: send">
-        <input type="text" data-bind="value: message" />
-        <button type="submit">Envoyer</button>
-    </form>
+
+    <ul data-bind="foreach: messages" class="messages">
+        <li><strong data-bind="text: player.name"></strong> <span data-bind="text: text"></span> </li>
+    </ul>
+    
     <script src="~/Scripts/require.js" data-main="Scripts/main"></script>
 
-
+    <span data-bind="text: question.name" class="solution"></span>
 
 </body>
 </html>
