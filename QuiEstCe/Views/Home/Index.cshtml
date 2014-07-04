@@ -20,9 +20,10 @@
         <img data-bind="attr: {src: image}" />
     </div>
 
-    <input type="text" data-bind="value: message" />
-    <button data-bind="click: send">Envoyer</button>
-
+    <form action="/" data-bind="submit: send">
+        <input type="text" data-bind="value: message" />
+        <button type="submit">Envoyer</button>
+    </form>
     <script src="~/Scripts/require.js" data-main="Scripts/main"></script>
 
 
